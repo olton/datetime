@@ -35,7 +35,7 @@ Object.assign(Datetime.prototype, {
             a: "["+this.ampm(true)+"]",
             A: "["+this.ampm(false)+"]",
             h: h12,
-            hh: lpad(h12, 2, "0")
+            hh: lpad(h12, 0, 2)
         };
 
         result = format.replace(/(\[[^\]]+])|a|A|h{1,2}/g, (match, $1) => $1 || matches[match]);

@@ -49,9 +49,9 @@ Object.assign(Datetime.prototype, {
 
         matches = {
             W: wn,
-            WW: lpad(wn, 2, "0"),
+            WW: lpad(wn, 0, 2),
             WWW: wni,
-            WWWW: lpad(wni, 2, "0")
+            WWWW: lpad(wni, 0, 2)
         };
 
         result = format.replace(/(\[[^\]]+])|W{1,4}/g, (match, $1) => $1 || matches[match]);

@@ -2,7 +2,6 @@ import {version} from "../package.json"
 import {isNum} from "./helpers/is-num";
 import {DEFAULT_LOCALE, INVALID_DATE, M, C, DEFAULT_FORMAT, REGEX_FORMAT} from "./helpers/consts";
 import {required} from "./helpers/required";
-import {extend} from "./helpers/extend";
 import {not} from "./helpers/not";
 import {lpad} from "./helpers/lpad"
 import {isset} from "./helpers/isset";
@@ -43,14 +42,6 @@ class Datetime {
 
     static getLocale(name = "en"){
         return isset(Datetime.locales[name], false) ? Datetime.locales[name] : Datetime.locales["en"];
-    }
-
-    static use(obj){
-        extend(Datetime.prototype, obj);
-    }
-
-    static useStatic(obj){
-        extend(Datetime, obj);
     }
 
     static align(date, align){
@@ -247,22 +238,22 @@ class Datetime {
             YY: year2,
             YYYY: year,
             M: month + 1,
-            MM: lpad(month + 1, "0", 2),
+            MM: lpad(month + 1, 0, 2),
             MMM: names.monthsShort[month],
             MMMM: names.months[month],
             D: day,
-            DD: lpad(day, "0", 2),
+            DD: lpad(day, 0, 2),
             d: weekDay,
             dd: names.weekdaysMin[weekDay],
             ddd: names.weekdaysShort[weekDay],
             dddd: names.weekdays[weekDay],
             H: hour,
-            HH: lpad(hour, "0", 2),
+            HH: lpad(hour, 0, 2),
             m: minute,
-            mm: lpad(minute,"0", 2),
+            mm: lpad(minute,0, 2),
             s: second,
-            ss: lpad(second,"0", 2),
-            sss: lpad(ms,"0", 3)
+            ss: lpad(second,0, 2),
+            sss: lpad(ms,0, 3)
         };
 
         return format.replace(REGEX_FORMAT, (match, $1) => $1 || matches[match]);

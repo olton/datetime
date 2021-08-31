@@ -8,6 +8,9 @@ describe('Datetime Utils', function() {
         it ('Should be 009', () => {
             assert.strictEqual(lpad(9, "0", 3), '009');
         })
+        it ('Should be 009', () => {
+            assert.strictEqual(lpad(9, 0, 3), '009');
+        })
         it ('Should be 19', () => {
             assert.strictEqual(lpad(19, "0", 2), '19');
         })

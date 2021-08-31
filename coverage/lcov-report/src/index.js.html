@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.65% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>146/148</span>
+                <span class='fraction'>146/146</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">95.74% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>45/47</span>
+                <span class='fraction'>45/45</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.41% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>124/126</span>
+                <span class='fraction'>124/124</span>
             </div>
         
             
@@ -332,17 +332,7 @@
 <a name='L273'></a><a href='#L273'>273</a>
 <a name='L274'></a><a href='#L274'>274</a>
 <a name='L275'></a><a href='#L275'>275</a>
-<a name='L276'></a><a href='#L276'>276</a>
-<a name='L277'></a><a href='#L277'>277</a>
-<a name='L278'></a><a href='#L278'>278</a>
-<a name='L279'></a><a href='#L279'>279</a>
-<a name='L280'></a><a href='#L280'>280</a>
-<a name='L281'></a><a href='#L281'>281</a>
-<a name='L282'></a><a href='#L282'>282</a>
-<a name='L283'></a><a href='#L283'>283</a>
-<a name='L284'></a><a href='#L284'>284</a>
-<a name='L285'></a><a href='#L285'>285</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L276'></a><a href='#L276'>276</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -386,14 +376,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">209x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -629,7 +611,6 @@
 import {isNum} from "./helpers/is-num";
 import {DEFAULT_LOCALE, INVALID_DATE, M, C, DEFAULT_FORMAT, REGEX_FORMAT} from "./helpers/consts";
 import {required} from "./helpers/required";
-import {extend} from "./helpers/extend";
 import {not} from "./helpers/not";
 import {lpad} from "./helpers/lpad"
 import {isset} from "./helpers/isset";
@@ -670,14 +651,6 @@ class Datetime {
 &nbsp;
     static getLocale(name = "en"){
         return isset(Datetime.locales[name], false) ? Datetime.locales[name] : Datetime.locales["en"];
-    }
-&nbsp;
-<span class="fstat-no" title="function not covered" >    st</span>atic use(obj){
-<span class="cstat-no" title="statement not covered" >        extend(Datetime.prototype, obj);</span>
-    }
-&nbsp;
-<span class="fstat-no" title="function not covered" >    st</span>atic useStatic(obj){
-<span class="cstat-no" title="statement not covered" >        extend(Datetime, obj);</span>
     }
 &nbsp;
     static align(date, align){
@@ -874,22 +847,22 @@ class Datetime {
             YY: year2,
             YYYY: year,
             M: month + 1,
-            MM: lpad(month + 1, "0", 2),
+            MM: lpad(month + 1, 0, 2),
             MMM: names.monthsShort[month],
             MMMM: names.months[month],
             D: day,
-            DD: lpad(day, "0", 2),
+            DD: lpad(day, 0, 2),
             d: weekDay,
             dd: names.weekdaysMin[weekDay],
             ddd: names.weekdaysShort[weekDay],
             dddd: names.weekdays[weekDay],
             H: hour,
-            HH: lpad(hour, "0", 2),
+            HH: lpad(hour, 0, 2),
             m: minute,
-            mm: lpad(minute,"0", 2),
+            mm: lpad(minute,0, 2),
             s: second,
-            ss: lpad(second,"0", 2),
-            sss: lpad(ms,"0", 3)
+            ss: lpad(second,0, 2),
+            sss: lpad(ms,0, 3)
         };
 &nbsp;
         return format.replace(REGEX_FORMAT, (match, $1) =&gt; $1 || matches[match]);
@@ -916,7 +889,7 @@ export {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 31 2021 15:20:40 GMT+0300 (Восточная Европа, летнее время)
+                at Tue Aug 31 2021 15:37:23 GMT+0300 (Восточная Европа, летнее время)
             </div>
         </div>
         <script src="../prettify.js"></script>
