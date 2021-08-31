@@ -4,16 +4,17 @@ module.exports = function (wallaby) {
             'src/*.js',
             'src/plugins/*.js',
             'src/i18n/*.js',
+            'src/core/*.js',
         ],
 
         tests: [
-            'tests/**/*.js'
+            '__tests__/**/*.js'
         ],
 
         env: {
             type: 'node'
         },
 
-        testFramework: 'mocha'
+        testFramework: 'jest'
     };
 };
