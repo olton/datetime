@@ -1,5 +1,5 @@
 import {DEFAULT_FORMAT} from "../helpers/consts";
-import {Datetime} from "../";
+import {Datetime} from "../core/class";
 import {lpad} from "../helpers/lpad";
 
 const fnFormat = Datetime.prototype.format;

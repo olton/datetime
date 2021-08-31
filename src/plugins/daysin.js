@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../";
+import {Datetime, datetime} from "../index";
 import "./isleapyear"
 
 Object.assign(Datetime.prototype, {

@@ -1,9 +1,10 @@
 import assert from 'assert';
 import chai from 'chai';
 import {Datetime, datetime} from "../src";
-import "../src/i18n/ru";
+import ru_locale from "../src/i18n/ru";
 
 let expect = chai.expect;
+Datetime.setLocale("ru", ru_locale)
 
 describe('immutable()', () => {
     it ('The mutable Should be false', () => {

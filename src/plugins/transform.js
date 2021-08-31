@@ -1,4 +1,4 @@
-import {Datetime} from "../";
+import {Datetime} from "../core/class";
 
 Object.assign(Datetime.prototype, {
     toDateString(){

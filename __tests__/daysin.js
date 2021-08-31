@@ -2,7 +2,9 @@ import assert from 'assert';
 import {Datetime, datetime} from "../src";
 import '../src/plugins/daysin';
 import '../src/plugins/isleapyear';
-import '../src/i18n/ru';
+import ru_locale from '../src/i18n/ru';
+
+Datetime.setLocale("ru", ru_locale)
 
 describe('DaysIn plugin test', function() {
     it ('Should be 29', () => {

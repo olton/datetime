@@ -1,9 +1,8 @@
 import assert from 'assert';
 import {Datetime, datetime} from "../src";
-import chai from 'chai';
-import "../src/i18n/ru";
+import ru_locale from  "../src/i18n/ru";
 
-let expect = chai.expect;
+Datetime.setLocale("ru", ru_locale)
 
 describe('Datetime static methods', () => {
     it ('isDatetime() should be true', () => {

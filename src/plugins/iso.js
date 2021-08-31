@@ -1,40 +1,42 @@
 import {DEFAULT_FORMAT} from "../helpers/consts";
-import {Datetime, datetime} from "../";
+import {Datetime, datetime} from "../core/class";
 import {not} from "../helpers/not";
 
 const fnFormat = Datetime.prototype.format;
 const fnAlign = Datetime.align;
 const fnAlignEnd = Datetime.alignEnd;
 
-Datetime.align = (d, align) => {
-    let date = datetime(d), result, temp;
+Object.assign(Datetime, {
+    align(d, align) {
+        let date = datetime(d), result, temp;
 
-    switch(align) {
-        case "isoWeek":
-            temp = date.isoWeekDay();
-            result = fnAlign(date, 'day').addDay(-temp + 1);
-            break; // isoWeek
+        switch(align) {
+            case "isoWeek":
+                temp = date.isoWeekDay();
+                result = fnAlign(date, 'day').addDay(-temp + 1);
+                break; // isoWeek
 
-        default: result = fnAlign.apply(this, [date, align]);
+            default: result = fnAlign.apply(undefined, [date, align]);
+        }
+
+        return result;
+    },
+
+    alignEnd (d, align) {
+        let date = datetime(d), result, temp;
+
+        switch(align) {
+            case "isoWeek":
+                temp = date.isoWeekDay();
+                result = fnAlignEnd(date, 'day').addDay(7 - temp);
+                break; // isoWeek
+
+            default: result = fnAlignEnd.apply(undefined, [date, align]);
+        }
+
+        return result;
     }
-
-    return result;
-}
-
-Datetime.alignEnd = (d, align) => {
-    let date = datetime(d), result, temp;
-
-    switch(align) {
-        case "isoWeek":
-            temp = date.isoWeekDay();
-            result = fnAlignEnd(date, 'day').addDay(7 - temp);
-            break; // isoWeek
-
-        default: result = fnAlignEnd.apply(this, [date, align]);
-    }
-
-    return result;
-}
+})
 
 Object.assign(Datetime.prototype, {
     isoWeekDay(val){

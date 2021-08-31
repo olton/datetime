@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../";
+import {Datetime, datetime} from "../core/class";
 
 const createCalendar = (date, iso) => {
     let _date = datetime(date);

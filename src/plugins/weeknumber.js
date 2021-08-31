@@ -1,5 +1,5 @@
 import {DEFAULT_FORMAT} from "../helpers/consts"
-import {Datetime, datetime} from "../"
+import {Datetime, datetime} from "../core/class"
 import {lpad} from "../helpers/lpad"
 import "./timezone"
 

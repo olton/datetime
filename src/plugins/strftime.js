@@ -1,5 +1,5 @@
 import {REGEX_FORMAT_STRFTIME, DEFAULT_FORMAT_STRFTIME} from "../helpers/consts"
-import {Datetime, datetime} from "../";
+import {Datetime, datetime} from "../core/class";
 import {lpad} from "../helpers/lpad";
 
 import "./century"

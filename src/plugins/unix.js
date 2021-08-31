@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../";
+import {Datetime, datetime} from "../core/class";
 import {not} from "../helpers/not";
 
 Object.assign(Datetime, {

@@ -1,9 +1,8 @@
 import assert from 'assert';
-import chai from 'chai';
 import {Datetime, datetime} from "../src";
-import "../src/i18n/ru";
+import ru_locale from "../src/i18n/ru";
 
-let expect = chai.expect;
+Datetime.setLocale("ru", ru_locale)
 
 describe("Core methods", () => {
     describe('utc()', () => {
@@ -29,12 +28,12 @@ describe("Core methods", () => {
 
     describe('clone()', () => {
         it ('The Should be false', () => {
-            var date = datetime();
+            let date = datetime();
             assert.strictEqual(date === date.clone(), false);
         })
         it ('The Should be true', () => {
-            var date = datetime();
-            var clone = date.clone();
+            let date = datetime();
+            let clone = date.clone();
             assert.strictEqual(date.locale === clone.locale && date.time() === clone.time(), true);
         })
     });
