@@ -1,12 +1,11 @@
 # Datetime
 
-[![Coverage Status](https://coveralls.io/repos/github/olton/Datetime/badge.svg?branch=master)](https://coveralls.io/github/olton/Datetime?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/olton/datetime/badge.svg?branch=master)](https://coveralls.io/github/olton/datetime?branch=master)
 ![Dependencies](https://img.shields.io/badge/Dependencies-none-darklime.svg)
-[![Core size](http://img.badgesize.io/olton/Datetime/master/lib/datetime.min.js?compression=gzip&label=Core+gzip)](https://github.com/olton/Datetime/blob/master/lib/datetime.min.js)
-[![Full size](http://img.badgesize.io/olton/Datetime/master/lib/datetime.all.min.js?compression=gzip&label=Full+gzip)](https://github.com/olton/Datetime/blob/master/lib/datetime.all.min.js)
-![GitHub release](https://img.shields.io/github/v/release/olton/Datetime?color=darkLime)
+[![Core size](http://img.badgesize.io/olton/datetime/master/lib/datetime.min.js?compression=gzip&label=Core+gzip)](https://github.com/olton/datetime/blob/master/lib/datetime.min.js)
+![GitHub release](https://img.shields.io/github/v/release/olton/datetime?color=darkLime)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)
-![GitHub issues](https://img.shields.io/github/issues-raw/olton/Datetime.svg?color=red)
+![GitHub issues](https://img.shields.io/github/issues-raw/olton/datetime.svg?color=red)
 
 <hr>
 
@@ -16,7 +15,7 @@
 * 💪 Immutable/mutable modes
 * 🔥 Chainable
 * 🌐 I18n support
-* 📦 2kb mini library (core), 8kb - full
+* 📦 9kb mini library (core), 16kb - full
 * 👫 All browsers, Electron, NodeJS supported
 
 ## Getting started
