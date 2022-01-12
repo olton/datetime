@@ -23,7 +23,7 @@ const getResult = (val) => {
 
 Object.assign(Datetime, {
     timeLapse(d) {
-        let old = datetime(Number(d)),
+        let old = datetime(d),
             now = datetime(),
             val = now - old
 
