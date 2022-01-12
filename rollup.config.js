@@ -3,17 +3,6 @@ import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import glob from 'glob'
 
-function getPlugins() {
-    return glob.sync('src/*/*.js', {
-        ignore: [
-            'src/core/*.js',
-            'src/i18n/*.js',
-            'src/helpers/*.js',
-            'src/*.js',
-        ],
-    });
-}
-
 function getI18N() {
     return glob.sync('src/*/*.js', {
         ignore: [
@@ -51,11 +40,11 @@ export default [
         output: [
             {
                 file: 'dist/datetime.js',
-                format: 'cjs',
+                format: 'es',
             },
             {
-                file: 'dist/es/datetime.js',
-                format: 'es'
+                file: 'dist/cjs/datetime.js',
+                format: 'cjs'
             },
         ],
         plugins: [
@@ -64,33 +53,9 @@ export default [
         ]
     },
     {
-        input: getPlugins(),
-        output: {
-            dir: 'dist/es/plugins',
-            format: 'es',
-            chunkFileNames: '[name].js',
-        },
-        plugins: [
-            babel({ babelHelpers: 'bundled' }),
-            commonjs()
-        ],
-    },
-    {
-        input: getPlugins(),
-        output: {
-            dir: 'dist/plugins',
-            format: 'cjs',
-            chunkFileNames: '[name].js',
-        },
-        plugins: [
-            babel({ babelHelpers: 'bundled' }),
-            commonjs()
-        ],
-    },
-    {
         input: getI18N(),
         output: {
-            dir: 'dist/es/i18n',
+            dir: 'dist/i18n',
             format: 'es',
             chunkFileNames: '[name].js',
             exports: "default"
@@ -103,7 +68,7 @@ export default [
     {
         input: getI18N(),
         output: {
-            dir: 'dist/i18n',
+            dir: 'dist/cjs/i18n',
             format: 'cjs',
             chunkFileNames: '[name].js',
             exports: "default"
