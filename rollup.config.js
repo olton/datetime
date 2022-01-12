@@ -40,12 +40,8 @@ export default [
         output: [
             {
                 file: 'dist/datetime.js',
-                format: 'es',
-            },
-            {
-                file: 'dist/cjs/datetime.js',
-                format: 'cjs'
-            },
+                format: 'esm',
+            }
         ],
         plugins: [
             commonjs(),
@@ -56,20 +52,7 @@ export default [
         input: getI18N(),
         output: {
             dir: 'dist/i18n',
-            format: 'es',
-            chunkFileNames: '[name].js',
-            exports: "default"
-        },
-        plugins: [
-            babel({ babelHelpers: 'bundled' }),
-            commonjs()
-        ],
-    },
-    {
-        input: getI18N(),
-        output: {
-            dir: 'dist/cjs/i18n',
-            format: 'cjs',
+            format: 'esm',
             chunkFileNames: '[name].js',
             exports: "default"
         },
