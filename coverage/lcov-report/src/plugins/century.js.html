@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">28.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/7</span>
+                <span class='fraction'>2/7</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -82,23 +82,23 @@
 <a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {DEFAULT_FORMAT} from "../helpers/consts";
@@ -107,20 +107,20 @@ import {Datetime} from "../index";
 const fnFormat = Datetime.prototype.format;
 &nbsp;
 Object.assign(Datetime.prototype, {
-    century(){
-        return Math.ceil(this.year()/100);
+<span class="fstat-no" title="function not covered" >    ce</span>ntury(){
+<span class="cstat-no" title="statement not covered" >        return Math.ceil(this.year()/100);</span>
     },
 &nbsp;
-    format(format, locale){
-        format = format || <span class="branch-1 cbranch-no" title="branch not covered" >DEFAULT_FORMAT;</span>
+<span class="fstat-no" title="function not covered" >    fo</span>rmat(format, locale){
+<span class="cstat-no" title="statement not covered" >        format = format || DEFAULT_FORMAT;</span>
 &nbsp;
-        const matches = {
+        const matches = <span class="cstat-no" title="statement not covered" >{</span>
             C: this.century()
         }
 &nbsp;
-        let fmt = format.replace(/(\[[^\]]+])|C/g, (match, $1) =&gt; $1 || matches[match])
+        let fmt = <span class="cstat-no" title="statement not covered" >format.replace(/(\[[^\]]+])|C/g, <span class="fstat-no" title="function not covered" >(m</span>atch, $1) =&gt; <span class="cstat-no" title="statement not covered" >$1 || matches[match])</span></span>
 &nbsp;
-        return fnFormat.bind(this)(fmt, locale)
+<span class="cstat-no" title="statement not covered" >        return fnFormat.bind(this)(fmt, locale)</span>
     }
 })
 &nbsp;</pre></td></tr></table></pre>
@@ -130,7 +130,7 @@ Object.assign(Datetime.prototype, {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 31 2021 21:20:44 GMT+0300 (Восточная Европа, летнее время)
+                at Wed Jan 12 2022 19:21:49 GMT+0200 (Восточная Европа, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

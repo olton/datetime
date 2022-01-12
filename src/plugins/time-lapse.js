@@ -1,4 +1,4 @@
-import {Datetime} from "../core/class.js";
+import {Datetime, datetime} from "../core/class.js";
 
 const getResult = (val) => {
     let res
@@ -33,7 +33,7 @@ Object.assign(Datetime, {
 
 Object.assign(Datetime.prototype, {
     timeLapse() {
-        let val = datetime() - this
+        let val = datetime() - +this
         return getResult(val)
     }
 })

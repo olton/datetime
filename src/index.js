@@ -22,7 +22,7 @@ import "./plugins/transform"
 import "./plugins/unix"
 import "./plugins/weeknumber"
 import "./plugins/yesterday"
-import "./plugins/age"
+import "./plugins/time-lapse"
 
 export {
     Datetime,

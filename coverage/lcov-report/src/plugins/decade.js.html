@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">6.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/15</span>
+                <span class='fraction'>1/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">7.69% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>1/13</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,60 +91,60 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Datetime} from "../index";
 &nbsp;
 Object.assign(Datetime.prototype, {
-    decade(){
-        return Math.floor(this.year()/10) * 10;
+<span class="fstat-no" title="function not covered" >    de</span>cade(){
+<span class="cstat-no" title="statement not covered" >        return Math.floor(this.year()/10) * 10;</span>
     },
 &nbsp;
-    decadeStart(){
-        const decade = this.decade();
-        const result = this.mutable ? this : this.clone();
+<span class="fstat-no" title="function not covered" >    de</span>cadeStart(){
+        const decade = <span class="cstat-no" title="statement not covered" >this.decade();</span>
+        const result = <span class="cstat-no" title="statement not covered" >this.mutable ? this : this.clone();</span>
 &nbsp;
-        return result.year(decade).month(0).day(1);
+<span class="cstat-no" title="statement not covered" >        return result.year(decade).month(0).day(1);</span>
     },
 &nbsp;
-    decadeEnd(){
-        const decade = this.decade() + 9;
-        const result = this.mutable ? this : this.clone();
+<span class="fstat-no" title="function not covered" >    de</span>cadeEnd(){
+        const decade = <span class="cstat-no" title="statement not covered" >this.decade() + 9;</span>
+        const result = <span class="cstat-no" title="statement not covered" >this.mutable ? this : this.clone();</span>
 &nbsp;
-        return result.year(decade).month(11).day(31);
+<span class="cstat-no" title="statement not covered" >        return result.year(decade).month(11).day(31);</span>
     },
 &nbsp;
-    decadeOfMonth(){
-        const part = this.clone().add(1, "month").day(1).add(-1, 'day').day() / 3;
-        const day = this.day();
+<span class="fstat-no" title="function not covered" >    de</span>cadeOfMonth(){
+        const part = <span class="cstat-no" title="statement not covered" >this.clone().add(1, "month").day(1).add(-1, 'day').day() / 3;</span>
+        const day = <span class="cstat-no" title="statement not covered" >this.day();</span>
 &nbsp;
-        if (day &lt;= part) return 1;
-        if (day &lt;= part * 2) return 2;
-        return 3;
+<span class="cstat-no" title="statement not covered" >        if (day &lt;= part) <span class="cstat-no" title="statement not covered" >return 1;</span></span>
+<span class="cstat-no" title="statement not covered" >        if (day &lt;= part * 2) <span class="cstat-no" title="statement not covered" >return 2;</span></span>
+<span class="cstat-no" title="statement not covered" >        return 3;</span>
     }
 })
 &nbsp;</pre></td></tr></table></pre>
@@ -154,7 +154,7 @@ Object.assign(Datetime.prototype, {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 31 2021 21:20:44 GMT+0300 (Восточная Европа, летнее время)
+                at Wed Jan 12 2022 19:21:49 GMT+0200 (Восточная Европа, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

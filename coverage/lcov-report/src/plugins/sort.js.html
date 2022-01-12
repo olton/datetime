@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">4.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/23</span>
+                <span class='fraction'>1/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">5.26% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/19</span>
+                <span class='fraction'>1/19</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,36 +103,36 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {DEFAULT_FORMAT} from "../helpers/consts";
@@ -140,38 +140,38 @@ import {Datetime, datetime} from "../core/class";
 import {not} from "../helpers/not";
 &nbsp;
 Object.assign(Datetime, {
-    sort(arr, opt){
+<span class="fstat-no" title="function not covered" >    so</span>rt(arr, opt){
         let result, _arr;
-        const o = {};
+        const o = <span class="cstat-no" title="statement not covered" >{};</span>
 &nbsp;
-        if (typeof opt === "string" || typeof opt !== "object" || not(opt)) {
-            o.format = DEFAULT_FORMAT;
-            o.dir = opt &amp;&amp; opt.toUpperCase() === "DESC" ? "DESC" : "ASC";
-            o.returnAs = "datetime";
+<span class="cstat-no" title="statement not covered" >        if (typeof opt === "string" || typeof opt !== "object" || not(opt)) {</span>
+<span class="cstat-no" title="statement not covered" >            o.format = DEFAULT_FORMAT;</span>
+<span class="cstat-no" title="statement not covered" >            o.dir = opt &amp;&amp; opt.toUpperCase() === "DESC" ? "DESC" : "ASC";</span>
+<span class="cstat-no" title="statement not covered" >            o.returnAs = "datetime";</span>
         } else {
-            o.format = opt.format || DEFAULT_FORMAT;
-            o.dir = (opt.dir || "ASC").toUpperCase();
-            o.returnAs = opt.format ? "string" : opt.returnAs || "datetime";
+<span class="cstat-no" title="statement not covered" >            o.format = opt.format || DEFAULT_FORMAT;</span>
+<span class="cstat-no" title="statement not covered" >            o.dir = (opt.dir || "ASC").toUpperCase();</span>
+<span class="cstat-no" title="statement not covered" >            o.returnAs = opt.format ? "string" : opt.returnAs || "datetime";</span>
         }
 &nbsp;
-        _arr =  arr.map((el) =&gt; datetime(el)).sort((a, b) =&gt; a.valueOf() - b.valueOf());
+<span class="cstat-no" title="statement not covered" >        _arr =  arr.map(<span class="fstat-no" title="function not covered" >(e</span>l) =&gt; <span class="cstat-no" title="statement not covered" >datetime(el))</span>.sort(<span class="fstat-no" title="function not covered" >(a</span>, b) =&gt; <span class="cstat-no" title="statement not covered" >a.valueOf() - b.valueOf())</span>;</span>
 &nbsp;
-        if (o.dir === "DESC") {
-            _arr.reverse();
+<span class="cstat-no" title="statement not covered" >        if (o.dir === "DESC") {</span>
+<span class="cstat-no" title="statement not covered" >            _arr.reverse();</span>
         }
 &nbsp;
-        switch (o.returnAs) {
+<span class="cstat-no" title="statement not covered" >        switch (o.returnAs) {</span>
             case "string":
-                result = _arr.map((el) =&gt; el.format(o.format));
-                break;
+<span class="cstat-no" title="statement not covered" >                result = _arr.map(<span class="fstat-no" title="function not covered" >(e</span>l) =&gt; <span class="cstat-no" title="statement not covered" >el.format(o.format))</span>;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
             case "date":
-                result = _arr.map((el) =&gt; el.val());
-                break;
+<span class="cstat-no" title="statement not covered" >                result = _arr.map(<span class="fstat-no" title="function not covered" >(e</span>l) =&gt; <span class="cstat-no" title="statement not covered" >el.val())</span>;</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
 &nbsp;
-            default: result = _arr;
+            default: <span class="cstat-no" title="statement not covered" >result = _arr;</span>
         }
 &nbsp;
-        return result;
+<span class="cstat-no" title="statement not covered" >        return result;</span>
     }
 })
 &nbsp;</pre></td></tr></table></pre>
@@ -181,7 +181,7 @@ Object.assign(Datetime, {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 31 2021 21:20:44 GMT+0300 (Восточная Европа, летнее время)
+                at Wed Jan 12 2022 19:21:49 GMT+0200 (Восточная Европа, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>

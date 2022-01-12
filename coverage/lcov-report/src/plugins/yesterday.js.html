@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">22.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>2/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">22.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>2/9</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -84,46 +84,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Datetime, datetime} from "../core/class";
 &nbsp;
 Object.assign(Datetime, {
-    isYesterday(date){
-        const d = datetime(date).align("day");
-        const c = datetime().align('day').add(-1, 'day');
+<span class="fstat-no" title="function not covered" >    is</span>Yesterday(date){
+        const d = <span class="cstat-no" title="statement not covered" >datetime(date).align("day");</span>
+        const c = <span class="cstat-no" title="statement not covered" >datetime().align('day').add(-1, 'day');</span>
 &nbsp;
-        return d.time() === c.time();
+<span class="cstat-no" title="statement not covered" >        return d.time() === c.time();</span>
     }
 });
 &nbsp;
 Object.assign(Datetime.prototype, {
-    isYesterday(){
-        return Datetime.isYesterday(this);
+<span class="fstat-no" title="function not covered" >    is</span>Yesterday(){
+<span class="cstat-no" title="statement not covered" >        return Datetime.isYesterday(this);</span>
     },
 &nbsp;
-    yesterday(){
-        if (!this.mutable) {
-            return this.clone().immutable(false).add(-1, 'day').immutable(!this.mutable);
+<span class="fstat-no" title="function not covered" >    ye</span>sterday(){
+<span class="cstat-no" title="statement not covered" >        if (!this.mutable) {</span>
+<span class="cstat-no" title="statement not covered" >            return this.clone().immutable(false).add(-1, 'day').immutable(!this.mutable);</span>
         }
-        return this.add(-1, 'day');
+<span class="cstat-no" title="statement not covered" >        return this.add(-1, 'day');</span>
     }
 })
 &nbsp;</pre></td></tr></table></pre>
@@ -133,7 +133,7 @@ Object.assign(Datetime.prototype, {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Tue Aug 31 2021 21:20:44 GMT+0300 (Восточная Европа, летнее время)
+                at Wed Jan 12 2022 19:21:49 GMT+0200 (Восточная Европа, стандартное время)
             </div>
         </div>
         <script src="../../prettify.js"></script>
