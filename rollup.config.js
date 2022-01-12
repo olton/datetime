@@ -50,11 +50,11 @@ export default [
         input: 'src/index.js',
         output: [
             {
-                file: 'dist/datetime.cjs.js',
+                file: 'dist/datetime.js',
                 format: 'cjs',
             },
             {
-                file: 'dist/es/datetime.esm.js',
+                file: 'dist/es/datetime.js',
                 format: 'es'
             },
         ],
