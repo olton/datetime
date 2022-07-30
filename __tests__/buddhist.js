@@ -1,4 +1,4 @@
-import {datetime} from "../dist"
+import {datetime} from "../dist/datetime.js"
 import "../src/plugins/buddhist"
 
 describe('buddhist() test', () => {

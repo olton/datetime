@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">3.7% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/27</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>7/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.56% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/18</span>
+                <span class='fraction'>18/18</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -148,29 +148,27 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">29x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -211,9 +209,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,26 +229,26 @@ import "./timezone"
 import "./iso"
 &nbsp;
 Object.assign(Datetime.prototype, {
-<span class="fstat-no" title="function not covered" >    st</span>rftime(fmt, locale){
-        const format = <span class="cstat-no" title="statement not covered" >fmt || DEFAULT_FORMAT_STRFTIME;</span>
-        const names = <span class="cstat-no" title="statement not covered" >Datetime.getLocale(locale || this.locale);</span>
-        const year = <span class="cstat-no" title="statement not covered" >this.year(),</span> year2 = <span class="cstat-no" title="statement not covered" >this.year2(),</span> month = <span class="cstat-no" title="statement not covered" >this.month(),</span> day = <span class="cstat-no" title="statement not covered" >this.day(),</span> weekDay = <span class="cstat-no" title="statement not covered" >this.weekDay();</span>
-        const hour = <span class="cstat-no" title="statement not covered" >this.hour(),</span> hour12 = <span class="cstat-no" title="statement not covered" >this.hour12(),</span> minute = <span class="cstat-no" title="statement not covered" >this.minute(),</span> second = <span class="cstat-no" title="statement not covered" >this.second(),</span> ms = <span class="cstat-no" title="statement not covered" >this.ms(),</span> time = <span class="cstat-no" title="statement not covered" >this.time();</span>
-        const aDay = <span class="cstat-no" title="statement not covered" >lpad(day, 0, 2),</span>
-            aMonth = <span class="cstat-no" title="statement not covered" >lpad(month + 1, 0, 2),</span>
-            aHour = <span class="cstat-no" title="statement not covered" >lpad(hour, 0, 2),</span>
-            aHour12 = <span class="cstat-no" title="statement not covered" >lpad(hour12, 0, 2),</span>
-            aMinute = <span class="cstat-no" title="statement not covered" >lpad(minute, 0, 2),</span>
-            aSecond = <span class="cstat-no" title="statement not covered" >lpad(second, 0, 2),</span>
-            aMs = <span class="cstat-no" title="statement not covered" >lpad(ms, 0, 3);</span>
+    strftime(fmt, locale){
+        const format = fmt || DEFAULT_FORMAT_STRFTIME;
+        const names = Datetime.getLocale(locale || this.locale);
+        const year = this.year(), year2 = this.year2(), month = this.month(), day = this.day(), weekDay = this.weekDay();
+        const hour = this.hour(), hour12 = this.hour12(), minute = this.minute(), second = this.second(), ms = this.ms(), time = this.time();
+        const aDay = lpad(day, 0, 2),
+            aMonth = lpad(month + 1, 0, 2),
+            aHour = lpad(hour, 0, 2),
+            aHour12 = lpad(hour12, 0, 2),
+            aMinute = lpad(minute, 0, 2),
+            aSecond = lpad(second, 0, 2),
+            aMs = lpad(ms, 0, 3);
 &nbsp;
-        const that = <span class="cstat-no" title="statement not covered" >this;</span>
+        const that = this;
 &nbsp;
-        const thursday = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >fu</span>nction(){</span>
-<span class="cstat-no" title="statement not covered" >            return datetime(that.value).day(that.day() - ((that.weekDay() + 6) % 7) + 3);</span>
+        const thursday = function(){
+            return datetime(that.value).day(that.day() - ((that.weekDay() + 6) % 7) + 3);
         };
 &nbsp;
-        const matches = <span class="cstat-no" title="statement not covered" >{</span>
+        const matches = {
             '%a': names.weekdaysShort[weekDay],
             '%A': names.weekdays[weekDay],
             '%b': names.monthsShort[month],
@@ -291,9 +291,9 @@ Object.assign(Datetime.prototype, {
             "%t": this.timezone()
         };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return format.replace(</span>
+        return format.replace(
             REGEX_FORMAT_STRFTIME,
-<span class="fstat-no" title="function not covered" >            (m</span>atch) =&gt; (<span class="cstat-no" title="statement not covered" >matches[match] === 0 || matches[match] ? matches[match] : match)</span>
+            (match) =&gt; (matches[match] === 0 || matches[match] ? matches[match] : <span class="branch-1 cbranch-no" title="branch not covered" >match)</span>
         );
     }
 });
@@ -304,7 +304,7 @@ Object.assign(Datetime.prototype, {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jan 12 2022 19:21:49 GMT+0200 (Восточная Европа, стандартное время)
+                at Sat Jul 30 2022 20:23:18 GMT+0300 (за східноєвропейським літнім часом)
             </div>
         </div>
         <script src="../../prettify.js"></script>

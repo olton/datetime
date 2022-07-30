@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../index";
+import {Datetime, datetime} from "../core/class";
 
 Object.assign(Datetime.prototype, {
     same(d){

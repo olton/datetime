@@ -1,4 +1,4 @@
-import {Datetime} from "../index";
+import {Datetime} from "../core/class";
 
 Object.assign(Datetime.prototype, {
     decade(){

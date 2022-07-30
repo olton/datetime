@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.26% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>1/19</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.88% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>1/17</span>
+                <span class='fraction'>17/17</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,75 +97,75 @@
 <a name='L38'></a><a href='#L38'>38</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">29x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Datetime, datetime} from "../index";
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Datetime, datetime} from "../core/class";
 import "./isleapyear"
 &nbsp;
 Object.assign(Datetime.prototype, {
-<span class="fstat-no" title="function not covered" >    da</span>ysInMonth(){
-        const curr = <span class="cstat-no" title="statement not covered" >datetime(this.value);</span>
-<span class="cstat-no" title="statement not covered" >        return curr.add(1, 'month').day(1).add(-1, 'day').day();</span>
+    daysInMonth(){
+        const curr = datetime(this.value);
+        return curr.add(1, 'month').day(1).add(-1, 'day').day();
     },
 &nbsp;
-<span class="fstat-no" title="function not covered" >    da</span>ysInYear(){
-<span class="cstat-no" title="statement not covered" >        return this.isLeapYear() ? 366 : 365;</span>
+    daysInYear(){
+        return this.isLeapYear() ? 366 : 365;
     },
 &nbsp;
-<span class="fstat-no" title="function not covered" >    da</span>ysInYearMap(){
-        const result = <span class="cstat-no" title="statement not covered" >[];</span>
-        const curr = <span class="cstat-no" title="statement not covered" >datetime(this.value);</span>
+    daysInYearMap(){
+        const result = [];
+        const curr = datetime(this.value);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        curr.month(0).day(1);</span>
+        curr.month(0).day(1);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        for(let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; 12; i++) {</span>
-<span class="cstat-no" title="statement not covered" >            curr.add(1, 'month').add(-1, 'day');</span>
-<span class="cstat-no" title="statement not covered" >            result.push(curr.day());</span>
-<span class="cstat-no" title="statement not covered" >            curr.day(1).add(1, 'month');</span>
+        for(let i = 0; i &lt; 12; i++) {
+            curr.add(1, 'month').add(-1, 'day');
+            result.push(curr.day());
+            curr.day(1).add(1, 'month');
         }
-<span class="cstat-no" title="statement not covered" >        return result;</span>
+        return result;
     },
 &nbsp;
-<span class="fstat-no" title="function not covered" >    da</span>ysInYearObj(locale, shortName){
-        const map = <span class="cstat-no" title="statement not covered" >this.daysInYearMap();</span>
-        const result = <span class="cstat-no" title="statement not covered" >{};</span>
-        const names = <span class="cstat-no" title="statement not covered" >Datetime.getLocale(locale || this.locale);</span>
+    daysInYearObj(locale, shortName){
+        const map = this.daysInYearMap();
+        const result = {};
+        const names = Datetime.getLocale(locale || this.locale);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        map.forEach(<span class="fstat-no" title="function not covered" >(v</span>, i) =&gt; <span class="cstat-no" title="statement not covered" >result[names[shortName ? 'monthsShort' : 'months'][i]] = v)</span>;</span>
+        map.forEach((v, i) =&gt; result[names[shortName ? 'monthsShort' : 'months'][i]] = v);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return result;</span>
+        return result;
     }
 })
 &nbsp;</pre></td></tr></table></pre>
@@ -175,7 +175,7 @@ Object.assign(Datetime.prototype, {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Wed Jan 12 2022 19:21:49 GMT+0200 (Восточная Европа, стандартное время)
+                at Sat Jul 30 2022 20:23:18 GMT+0300 (за східноєвропейським літнім часом)
             </div>
         </div>
         <script src="../../prettify.js"></script>

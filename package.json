@@ -1,6 +1,6 @@
 {
   "name": "@olton/datetime",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Datetime is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for node and modern browsers with a comfortable modern API.",
   "main": "dist/datetime.js",
   "type": "module",
@@ -24,7 +24,7 @@
     "library"
   ],
   "bugs": {
-    "url": "https://github.com/olton/Datetime2/issues"
+    "url": "https://github.com/olton/datetime/issues"
   },
   "author": "Serhii Pimenov <serhii@pimenov.com.ua> (https://pimenov.com.ua/)",
   "license": "MIT",
