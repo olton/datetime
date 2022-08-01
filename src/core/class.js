@@ -1,9 +1,9 @@
-import {isNum} from "../helpers/is-num";
-import {C, DEFAULT_FORMAT, DEFAULT_LOCALE, INVALID_DATE, M, REGEX_FORMAT} from "../helpers/consts";
-import {required} from "../helpers/required";
-import {isset} from "../helpers/isset";
-import {not} from "../helpers/not";
-import {lpad} from "../helpers/lpad";
+import {isNum} from "../helpers/is-num.js";
+import {C, DEFAULT_FORMAT, DEFAULT_LOCALE, INVALID_DATE, M, REGEX_FORMAT} from "../helpers/consts.js";
+import {required} from "../helpers/required.js";
+import {isset} from "../helpers/isset.js";
+import {not} from "../helpers/not.js";
+import {lpad} from "../helpers/lpad.js";
 
 class Datetime {
     constructor() {
