@@ -1,6 +1,6 @@
 import assert from 'assert';
 import chai from 'chai';
-import {Datetime, datetime} from "../src";
+import {Datetime, datetime} from "../src/index.js";
 import ru_locale from "../src/i18n/ru";
 import {INVALID_DATE} from "../src/helpers/consts";
 

@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../src"
+import {Datetime, datetime} from "../src/index.js"
 import "../src/plugins/century"
 
 describe('century()', () => {

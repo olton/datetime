@@ -23,6 +23,7 @@ import "./plugins/unix"
 import "./plugins/weeknumber"
 import "./plugins/yesterday"
 import "./plugins/time-lapse"
+import "./plugins/parse-time.js"
 
 export {
     Datetime,

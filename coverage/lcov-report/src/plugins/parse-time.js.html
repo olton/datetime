@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/plugins/today.js</title>
+    <title>Code coverage report for src/plugins/parse-time.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/plugins</a> today.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/plugins</a> parse-time.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">81.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>13/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>6/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">86.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>13/15</span>
             </div>
         
             
@@ -86,53 +86,53 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">32x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Datetime, datetime} from "../core/class";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span></td><td class="text"><pre class="prettyprint lang-js">import {Datetime} from "../core/class.js";
 &nbsp;
-Object.assign(Datetime, {
-    isToday(date){
-        const d = datetime(date).align("day");
-        const c = datetime().align('day');
+const ParseTimeMixin = {
+    parseTime (t) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (!isNaN(t)) <span class="cstat-no" title="statement not covered" >return Math.abs(+t)</span>
+        const pattern = /([0-9]+d)|([0-9]{1,2}h)|([0-9]{1,2}m)|([0-9]{1,2}s)/gm
+        const match = t.match(pattern)
+        return match.reduce( (acc, val) =&gt; {
+            let res
 &nbsp;
-        return d.time() === c.time();
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (val.includes('d')) {
+<span class="cstat-no" title="statement not covered" >                res = 1000 * 60 * 60 * 24 * parseInt(val)</span>
+            } else <span class="missing-if-branch" title="if path not taken" >I</span>if (val.includes('h')) {
+<span class="cstat-no" title="statement not covered" >                res = 1000 * 60 * 60 * parseInt(val)</span>
+            } else if (val.includes('m')) {
+                res = 1000 * 60 * parseInt(val)
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (val.includes('s')) {
+                res = 1000 * parseInt(val)
+            }
+&nbsp;
+            return acc + res
+        }, 0 )
     }
-})
+}
 &nbsp;
-Object.assign(Datetime.prototype, {
-    isToday(){
-        return Datetime.isToday(this);
-    },
-&nbsp;
-    today(){
-        const now = datetime();
-&nbsp;
-        if (!this.mutable) {
-            return now;
-        }
-        return this.val(now.val());
-    }
-})
-&nbsp;</pre></td></tr></table></pre>
+Object.assign(Datetime, ParseTimeMixin)</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

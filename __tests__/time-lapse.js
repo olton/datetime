@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../dist/datetime.js"
+import {Datetime, datetime} from "../src/index.js"
 
 describe('timeLapse() test', () => {
     test('1', () => {
