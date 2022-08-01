@@ -1,5 +1,5 @@
-import {Datetime} from "../core/class"
-import "./isleapyear"
+import {Datetime} from "../core/class.js"
+import "./isleapyear.js"
 
 Object.assign(Datetime.prototype, {
     dayOfYear(){

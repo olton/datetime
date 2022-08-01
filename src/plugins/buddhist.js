@@ -1,5 +1,5 @@
-import {DEFAULT_FORMAT} from "../helpers/consts"
-import {Datetime} from "../core/class";
+import {DEFAULT_FORMAT} from "../helpers/consts.js"
+import {Datetime} from "../core/class.js";
 
 const fnFormat = Datetime.prototype.format;
 

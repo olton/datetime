@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1659354325659" clover="3.2.0">
-  <project timestamp="1659354325659" name="All files">
+<coverage generated="1659355278648" clover="3.2.0">
+  <project timestamp="1659355278649" name="All files">
     <metrics statements="548" coveredstatements="544" conditionals="357" coveredconditionals="327" methods="154" coveredmethods="153" elements="1059" coveredelements="1024" complexity="0" loc="548" ncloc="548" packages="5" files="34" classes="34"/>
     <package name="src">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -167,8 +167,8 @@
         <line num="1" count="32" type="stmt"/>
         <line num="2" count="1728" type="stmt"/>
         <line num="3" count="1728" type="cond" truecount="4" falsecount="0"/>
-        <line num="4" count="370" type="stmt"/>
-        <line num="6" count="1358" type="stmt"/>
+        <line num="4" count="346" type="stmt"/>
+        <line num="6" count="1382" type="stmt"/>
       </file>
       <file name="not.js" path="C:\Projects\Datetime\src\helpers\not.js">
         <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>

@@ -1,4 +1,4 @@
-import {Datetime} from "../core/class";
+import {Datetime} from "../core/class.js";
 
 Object.assign(Datetime.prototype, {
     isLeapYear(){

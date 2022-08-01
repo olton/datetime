@@ -1,5 +1,5 @@
-import {Datetime, datetime} from "../core/class";
-import {not} from "../helpers/not";
+import {Datetime, datetime} from "../core/class.js";
+import {not} from "../helpers/not.js";
 
 Object.assign(Datetime, {
     timestamp(){

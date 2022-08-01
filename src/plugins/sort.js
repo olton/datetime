@@ -1,6 +1,6 @@
-import {DEFAULT_FORMAT} from "../helpers/consts";
-import {Datetime, datetime} from "../core/class";
-import {not} from "../helpers/not";
+import {DEFAULT_FORMAT} from "../helpers/consts.js";
+import {Datetime, datetime} from "../core/class.js";
+import {not} from "../helpers/not.js";
 
 Object.assign(Datetime, {
     sort(arr, opt){

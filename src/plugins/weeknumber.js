@@ -1,7 +1,7 @@
-import {DEFAULT_FORMAT} from "../helpers/consts"
-import {Datetime, datetime} from "../core/class"
-import {lpad} from "../helpers/lpad"
-import "./timezone"
+import {DEFAULT_FORMAT} from "../helpers/consts.js"
+import {Datetime, datetime} from "../core/class.js"
+import {lpad} from "../helpers/lpad.js"
+import "./timezone.js"
 
 const fnFormat = Datetime.prototype.format;
 

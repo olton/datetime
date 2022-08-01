@@ -1,13 +1,13 @@
-import {REGEX_FORMAT_STRFTIME, DEFAULT_FORMAT_STRFTIME} from "../helpers/consts"
-import {Datetime, datetime} from "../core/class";
-import {lpad} from "../helpers/lpad";
+import {REGEX_FORMAT_STRFTIME, DEFAULT_FORMAT_STRFTIME} from "../helpers/consts.js"
+import {Datetime, datetime} from "../core/class.js";
+import {lpad} from "../helpers/lpad.js";
 
-import "./century"
-import "./dayofyear"
-import "./hour12"
-import "./weeknumber"
-import "./timezone"
-import "./iso"
+import "./century.js"
+import "./dayofyear.js"
+import "./hour12.js"
+import "./weeknumber.js"
+import "./timezone.js"
+import "./iso.js"
 
 Object.assign(Datetime.prototype, {
     strftime(fmt, locale){

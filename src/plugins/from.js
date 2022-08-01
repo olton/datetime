@@ -1,6 +1,6 @@
-import {INVALID_DATE} from "../helpers/consts";
-import {Datetime, datetime} from "../core/class";
-import {not} from "../helpers/not";
+import {INVALID_DATE} from "../helpers/consts.js";
+import {Datetime, datetime} from "../core/class.js";
+import {not} from "../helpers/not.js";
 
 Object.assign(Datetime, {
     from(str, format, locale){

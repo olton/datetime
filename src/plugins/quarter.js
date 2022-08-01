@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../core/class";
+import {Datetime, datetime} from "../core/class.js";
 
 const fnAlign = Datetime.align;
 const fnAlignEnd = Datetime.alignEnd;

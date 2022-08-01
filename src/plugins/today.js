@@ -1,4 +1,4 @@
-import {Datetime, datetime} from "../core/class";
+import {Datetime, datetime} from "../core/class.js";
 
 Object.assign(Datetime, {
     isToday(date){
