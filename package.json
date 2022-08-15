@@ -1,6 +1,6 @@
 {
   "name": "@olton/datetime",
-  "version": "0.2.4",
+  "version": "3.0.0",
   "description": "Datetime is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for node and modern browsers with a comfortable modern API.",
   "main": "src/index.js",
   "source": "src/index.js",
@@ -13,9 +13,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/olton/datetime.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/olton"
   },
   "keywords": [
     "date",
