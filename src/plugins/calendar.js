@@ -1,7 +1,7 @@
 import {Datetime, datetime} from "../core/class.js";
 
 const createCalendar = (date, iso) => {
-    let _date = datetime(date);
+    let _date = date instanceof Datetime ? date.clone().align("month") : datetime(date);
     let ws = iso === 0 || iso ? iso : date.weekStart;
     let wd = ws ? _date.isoWeekDay() : _date.weekDay();
     let names = Datetime.getLocale(_date.locale);
