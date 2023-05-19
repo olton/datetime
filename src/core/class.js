@@ -103,8 +103,8 @@ class Datetime {
         return this;
     }
 
-    useLocale(val){
-        this.locale = !isset(Datetime.locales[val], false) ? "en" : val;
+    useLocale(val, override){
+        this.locale = override ? val : !isset(Datetime.locales[val], false) ? "en" : val;
         this.weekStart = Datetime.getLocale(this.locale).weekStart;
         return this;
     }
