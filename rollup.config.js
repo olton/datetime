@@ -1,36 +1,51 @@
-import { terser } from 'rollup-plugin-terser'
-// import { babel } from '@rollup/plugin-babel'
-// import commonjs from '@rollup/plugin-commonjs'
-import glob from 'glob'
+import terser from '@rollup/plugin-terser'
+import progress from 'rollup-plugin-progress';
+import pkg from "./package.json" assert {type: "json"}
 
-function getI18N() {
-    return glob.sync('src/*/*.js', {
-        ignore: [
-            'src/core/*.js',
-            'src/plugins/*.js',
-            'src/helpers/*.js',
-            'src/*.js',
-        ],
-    });
-}
+const production = !(process.env.ROLLUP_WATCH)
+const sourcemap = !production
+
+const banner = `
+/**
+* Datetime v${pkg.version}. 
+* Copyright ${new Date().getFullYear()} by Serhii Pimenov
+* Licensed under MIT
+*
+* Build time: ${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}
+*/
+`
 
 export default [
     {
         input: 'src/browser.js',
+        watch: {
+            include: 'src/**',
+            clearScreen: false
+        },
+        plugins: [
+            progress({
+                clearLine: true,
+            }),
+        ],
         output: [
             {
                 file: 'lib/datetime.js',
                 format: 'iife',
-                name: "",
-                plugins: [
-                ]
+                name: "dt",
+                sourcemap: false,
+                banner,
             },
             {
                 file: 'lib/datetime.min.js',
                 format: 'iife',
-                name: "",
+                name: "dt",
+                sourcemap,
+                banner,
                 plugins: [
-                    terser()
+                    terser({
+                        keep_classnames: true,
+                        keep_fnames: true,
+                    })
                 ]
             }
         ]

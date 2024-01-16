@@ -6,3 +6,7 @@ tests
 *.bat
 *.yml
 .npmrc
+lib
+__tests__
+__html__
+coverage
