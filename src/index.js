@@ -25,7 +25,15 @@ import "./plugins/yesterday.js"
 import "./plugins/time-lapse.js"
 import "./plugins/parse-time.js"
 
+const version = "3.0.4"
+const build_time = "08.05.2024, 14:05:56"
+
+const info = () => {
+    console.info(`%c Datetime Library %c v${version} %c ${build_time} `, "color: #ffffff; font-weight: bold; background: #003152", "color: white; background: darkgreen", "color: white; background: #0080fe;")
+}
+
 export {
     Datetime,
-    datetime
+    datetime,
+    info
 }

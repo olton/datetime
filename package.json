@@ -1,13 +1,18 @@
 {
   "name": "@olton/datetime",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Datetime is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for node and modern browsers with a comfortable modern API.",
-  "main": "src/index.js",
-  "source": "src/index.js",
+  "main": "dist/datetime.cjs.js",
+  "module": "dist/datetime.es.js",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prebuild": "shx rm -rf dist/* lib/*",
-    "build": "npm i && rollup --config",
+    "build": "npm i && cross-env MODE=production rollup --config",
+    "dev": "cross-env MODE=development rollup --config",
+    "watch": "cross-env MODE=development rollup -c -w",
     "test": "vitest"
   },
   "repository": {
@@ -31,11 +36,10 @@
   ],
   "devDependencies": {
     "@rollup/plugin-terser": "latest",
+    "cross-env": "^7.0.3",
     "rollup": "latest",
+    "rollup-plugin-progress": "^1.1.2",
     "shx": "latest",
     "vitest": "^1.2.0"
-  },
-  "dependencies": {
-    "rollup-plugin-progress": "^1.1.2"
   }
 }

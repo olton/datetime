@@ -29,8 +29,19 @@ import "./i18n/ru.js"
 import "./i18n/de.js"
 import "./i18n/ua.js"
 
+const version = "3.0.4"
+const build_time = "08.05.2024, 14:05:56"
+
+const info = () => {
+    console.info(`%c Datetime Library %c v${version} %c ${build_time} `, "color: #ffffff; font-weight: bold; background: #003152", "color: white; background: darkgreen", "color: white; background: #0080fe;")
+}
+
+Datetime.info = info
+
 globalThis.Datetime = Datetime
 globalThis.datetime = datetime
 if (!globalThis.date) {
     globalThis.date = datetime
 }
+
+info()
