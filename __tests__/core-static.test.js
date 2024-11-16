@@ -1,8 +1,8 @@
-import {describe, it, assert} from "vitest";
+import {describe, it, assert} from "@olton/easytest";
 import {Datetime, datetime} from "../src";
-import ru_locale from  "../src/i18n/ru";
+import ua_locale from  "../src/i18n/ua.js";
 
-Datetime.setLocale("ru", ru_locale)
+Datetime.setLocale("ua", ua_locale)
 
 describe('Datetime static methods', () => {
     it ('isDatetime() should be true', () => {

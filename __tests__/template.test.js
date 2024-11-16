@@ -1,4 +1,4 @@
-import {describe, it, assert} from "vitest";
+import {describe, it, assert} from "@olton/easytest";
 import {Datetime, datetime} from "../src";
 
 describe('Datetime test template', function() {

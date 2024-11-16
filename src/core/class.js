@@ -5,6 +5,9 @@ import {isset} from "../helpers/isset.js";
 import {not} from "../helpers/not.js";
 import {lpad} from "../helpers/lpad.js";
 
+import ua_locale from "../i18n/ua.js"
+import de_locale from "../i18n/de.js"
+
 class Datetime {
     constructor() {
         const args = [].slice.call(arguments);
@@ -20,7 +23,9 @@ class Datetime {
     }
 
     static locales = {
-        "en": DEFAULT_LOCALE
+        en: DEFAULT_LOCALE,
+        ua: ua_locale,
+        de: de_locale
     }
 
     static isDatetime(val){

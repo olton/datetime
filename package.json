@@ -1,18 +1,22 @@
 {
   "name": "@olton/datetime",
-  "version": "3.0.5",
+  "version": "3.1.0",
   "description": "Datetime is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for node and modern browsers with a comfortable modern API.",
-  "main": "dist/datetime.es.js",
+  "main": "dist/datetime.js",
+  "exports": {
+    "import": "./dist/datetime.js",
+    "require": "./dist/datetime.cjs"
+  },
   "type": "module",
   "files": [
     "dist"
   ],
   "scripts": {
-    "prebuild": "shx rm -rf dist/* lib/*",
-    "build": "npm i && cross-env MODE=production rollup --config",
-    "dev": "cross-env MODE=development rollup --config",
-    "watch": "cross-env MODE=development rollup -c -w",
-    "test": "vitest",
+    "clean": "shx rm -rf dist/* lib/*",
+    "build": "npm run clean && cross-env NODE_NO_WARNINGS=1 MODE=production node build.js",
+    "dev": "npm run clean && cross-env NODE_NO_WARNINGS=1 MODE=development node build.js",
+    "watch": "npm run clean && cross-env NODE_NO_WARNINGS=1 MODE=development node watch.js",
+    "test": "easytest",
     "pub": "npm publish --access public"
   },
   "repository": {
@@ -35,11 +39,10 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "@rollup/plugin-terser": "latest",
+    "@olton/easytest": "^0.39.0",
+    "@olton/esbuild-plugin-progress": "^0.3.0",
     "cross-env": "^7.0.3",
-    "rollup": "latest",
-    "rollup-plugin-progress": "^1.1.2",
-    "shx": "latest",
-    "vitest": "^1.2.0"
+    "esbuild": "^0.24.0",
+    "shx": "^0.3.4"
   }
 }

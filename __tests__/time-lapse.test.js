@@ -1,8 +1,8 @@
-import {describe, test, expect} from "vitest";
+import {describe, it, expect} from "@olton/easytest";
 import {Datetime, datetime} from "../src/index.js"
 
 describe('timeLapse() test', () => {
-    test('1', () => {
+    it('1', () => {
         expect(datetime(new Date().getTime()).timeLapse()).toBe("few sec");
     })
 });

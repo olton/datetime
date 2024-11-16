@@ -1,17 +1,17 @@
-import {describe, it, assert} from "vitest";
+import {describe, it, assert} from "@olton/easytest";
 import {Datetime, datetime} from "../src";
 
 let expect = chai.expect;
 
 import '../src/plugins/from';
-import ru_locale from '../src/i18n/ru';
+import locale from '../src/i18n/ua.js';
 
 let str = "21 Dec 1972 06:12:54.321";
 let str2 = "21-12-1972 06:12:54.321";
 let str3 = "21-13-1972 06:12:54.321";
 let date = datetime();
 
-Datetime.setLocale("ru", ru_locale)
+Datetime.setLocale("ua", locale)
 
 describe('Parse date from string', function() {
     it ('Should be true', () => {

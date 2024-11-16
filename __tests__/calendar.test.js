@@ -1,4 +1,4 @@
-import {describe, it, expect} from "vitest";
+import {describe, it, expect} from "@olton/easytest";
 import {Datetime, datetime} from "../src/index.js"
 import "../src/plugins/calendar"
 import "../src/plugins/iso"

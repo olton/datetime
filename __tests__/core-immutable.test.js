@@ -1,27 +1,26 @@
-import {describe, it, assert} from "vitest";
+import {describe, it, expect} from "@olton/easytest";
 import {Datetime, datetime} from "../src/index.js";
 import ua_locale from "../src/i18n/ua";
 
-let expect = chai.expect;
 Datetime.setLocale("ua", ua_locale)
 
 describe('immutable()', () => {
     it ('The mutable Should be false', () => {
-        assert.strictEqual(datetime().immutable().mutable, false);
+        expect(datetime().immutable().mutable).toBe( false);
     })
     it ('The mutable Should be true', () => {
-        assert.strictEqual(datetime().immutable(false).mutable, true);
+        expect(datetime().immutable(false).mutable).toBe( true);
     })
     it ('The mutable Should be false', () => {
         var date = datetime().immutable();
-        assert.strictEqual(date.addDay(1) === date, false);
+        expect(date.addDay(1) === date).toBe( false);
     })
     it ('The mutable Should be true', () => {
         var date = datetime().immutable(false);
-        assert.strictEqual(date.addDay(1) === date, true);
+        expect(date.addDay(1) === date).toBe( true);
     })
     it ('The mutable Should be true', () => {
         var date = datetime();
-        assert.strictEqual(date.addDay(1) === date, true);
+        expect(date.addDay(1) === date).toBe( true);
     })
 });

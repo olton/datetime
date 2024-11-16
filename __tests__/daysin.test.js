@@ -1,10 +1,10 @@
-import {describe, it, assert} from "vitest";
+import {describe, it, assert} from "@olton/easytest";
 import {Datetime, datetime} from "../src";
 import '../src/plugins/daysin';
 import '../src/plugins/isleapyear';
-import ru_locale from '../src/i18n/ru';
+import locale from '../src/i18n/ua.js';
 
-Datetime.setLocale("ru", ru_locale)
+Datetime.setLocale("ua", locale)
 
 describe('DaysIn plugin test', function() {
     it ('Should be 29', () => {

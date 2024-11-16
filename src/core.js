@@ -1,4 +1,4 @@
-import {datetime, Datetime} from "./core/class.js";
+import {datetime, Datetime} from "./core/class.js"
 import "./plugins/buddhist.js"
 import "./plugins/calendar.js"
 import "./plugins/century.js"
@@ -25,23 +25,16 @@ import "./plugins/yesterday.js"
 import "./plugins/time-lapse.js"
 import "./plugins/parse-time.js"
 
-import "./i18n/ru.js"
 import "./i18n/de.js"
 import "./i18n/ua.js"
 
-const version = "3.0.5"
-const build_time = "08.06.2024, 20:43:59"
+const version = "3.0.6"
+const build_time = "25.10.2024, 15:09:35"
 
 const info = () => {
     console.info(`%c Datetime Library %c v${version} %c ${build_time} `, "color: #ffffff; font-weight: bold; background: #003152", "color: white; background: darkgreen", "color: white; background: #0080fe;")
 }
 
-Datetime.info = info
-
-globalThis.Datetime = Datetime
-globalThis.datetime = datetime
-if (!globalThis.date) {
-    globalThis.date = datetime
+export {
+    Datetime, datetime, info
 }
-
-info()

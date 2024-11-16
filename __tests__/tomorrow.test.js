@@ -1,4 +1,4 @@
-import {describe, it, assert} from "vitest";
+import {describe, it} from "@olton/easytest";
 import {Datetime, datetime} from "../src";
 import '../src/plugins/tomorrow';
 

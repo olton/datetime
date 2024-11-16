@@ -1,8 +1,8 @@
-import {describe, it, assert} from "vitest";
+import {describe, it, expect} from "@olton/easytest";
 import {Datetime, datetime} from "../src/index.js";
 
 describe('new Datetime()', () => {
     it ('Should return a instance of Datetime ', () => {
-        assert.strictEqual(new Datetime() instanceof Datetime, true);
+        expect(new Datetime() instanceof Datetime).toBe(true);
     });
 });
