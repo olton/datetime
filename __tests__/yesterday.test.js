@@ -1,6 +1,6 @@
-import {describe, it, assert} from "@olton/easytest";
-import {Datetime, datetime} from "../src";
-import '../src/plugins/yesterday';
+import {describe, it} from "@olton/easytest";
+import {Datetime, datetime} from "../src/index.js";
+import '../src/plugins/yesterday.js';
 
 describe('Datetime', function() {
     it ('Should be true', () => {

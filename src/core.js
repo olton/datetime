@@ -1,4 +1,5 @@
 import {datetime, Datetime} from "./core/class.js"
+
 import "./plugins/buddhist.js"
 import "./plugins/calendar.js"
 import "./plugins/century.js"
@@ -24,6 +25,7 @@ import "./plugins/weeknumber.js"
 import "./plugins/yesterday.js"
 import "./plugins/time-lapse.js"
 import "./plugins/parse-time.js"
+import "./plugins/moon.js"
 
 import "./i18n/de.js"
 import "./i18n/ua.js"
