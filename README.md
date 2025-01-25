@@ -1,5 +1,9 @@
 # Datetime
 
+ **Datetime** is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for Node and modern Browsers with a **comfortable modern API**.
+
+
+
 [![Coverage Status](https://coveralls.io/repos/github/olton/datetime/badge.svg?branch=master)](https://coveralls.io/github/olton/datetime?branch=master)
 ![Dependencies](https://img.shields.io/badge/Dependencies-none-darklime.svg)
 [![Core size](http://img.badgesize.io/olton/datetime/master/lib/datetime.min.js?compression=gzip&label=Core+gzip)](https://github.com/olton/datetime/blob/master/lib/datetime.min.js)
@@ -8,8 +12,6 @@
 ![GitHub issues](https://img.shields.io/github/issues-raw/olton/datetime.svg?color=red)
 
 <hr>
-
-**Datetime** is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for Node and modern Browsers with a **comfortable modern API**.
 
 * 🕒 Quick and accurate
 * 💪 Immutable/mutable modes
