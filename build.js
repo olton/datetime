@@ -1,12 +1,14 @@
 import {build, context} from "esbuild"
 import progress from "@olton/esbuild-plugin-progress"
+import { replace } from "esbuild-plugin-replace";
 import pkg from "./package.json" with {type: "json"};
 
+const version = pkg.version
 const production = process.env.MODE === "production"
 
 const banner = `
 /*!
- * Datetime v${pkg.version}.
+ * Datetime v${version}.
  * Build time: ${new Date().toLocaleString()}
  * Copyright ${new Date().getFullYear()} by Serhii Pimenov
  * Licensed under MIT
@@ -35,6 +37,10 @@ if (production) {
                 text: 'Building Datetime ESM...',
                 succeedText: 'ESM built successfully in %s ms!'
             }),
+            replace({
+                '__BUILD_TIME__': new Date().toLocaleString(),
+                '__VERSION__': version,
+            })
         ],
     })
 
@@ -50,6 +56,10 @@ if (production) {
                 text: 'Building Datetime Lib...',
                 succeedText: 'Lib built successfully in %s ms!'
             }),
+            replace({
+                '__BUILD_TIME__': new Date().toLocaleString(),
+                '__VERSION__': version,
+            })
         ],
     })
 } else {
@@ -63,6 +73,10 @@ if (production) {
                 text: 'Building Datetime ESM...',
                 succeedText: 'ESM built successfully in %s ms!'
             }),
+            replace({
+                '__BUILD_TIME__': new Date().toLocaleString(),
+                '__VERSION__': version,
+            })
         ],
     })
 
@@ -78,6 +92,10 @@ if (production) {
                 text: 'Building Datetime Lib...',
                 succeedText: 'Lib built successfully in %s ms!'
             }),
+            replace({
+                '__BUILD_TIME__': new Date().toLocaleString(),
+                '__VERSION__': version,
+            })
         ],
     })
     
