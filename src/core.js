@@ -30,11 +30,11 @@ import "./plugins/moon.js"
 import "./i18n/de.js"
 import "./i18n/ua.js"
 
-const version = "3.0.6"
-const build_time = "25.10.2024, 15:09:35"
+const version = "__VERSION__"
+const build_time = "__BUILD_TIME__"
 
 const info = () => {
-    console.info(`%c Datetime Library %c v${version} %c ${build_time} `, "color: #ffffff; font-weight: bold; background: #003152", "color: white; background: darkgreen", "color: white; background: #0080fe;")
+    console.info(`%c Datetime %c v${version} %c ${build_time} `, "color: #ffffff; font-weight: bold; background: #003152", "color: white; background: darkgreen", "color: white; background: #0080fe;")
 }
 
 export {
