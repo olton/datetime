@@ -17,91 +17,38 @@ const banner = `
  */
 `
 
-const defaults = {
+const options = {
+    entryPoints: ["src/index.js"],
+    outfile: 'dist/datetime.js',
+    format: "esm",
     bundle: true,
     minify: false,
     sourcemap: false,
     banner: {
         js: banner,
     },
+    plugins: [
+        progress({
+            text: 'Building Datetime ESM...',
+            succeedText: 'ESM built successfully in %s ms!'
+        }),
+        replace({
+            '__BUILD_TIME__': new Date().toLocaleString(),
+            '__VERSION__': version,
+        })
+    ],
 }
 
 if (production) {
     await build({
-        ...defaults,
-        entryPoints: ["src/index.js"],
-        outfile: 'dist/datetime.js',
-        format: "esm",
-        plugins: [
-            progress({
-                text: 'Building Datetime ESM...',
-                succeedText: 'ESM built successfully in %s ms!'
-            }),
-            replace({
-                '__BUILD_TIME__': new Date().toLocaleString(),
-                '__VERSION__': version,
-            })
-        ],
-    })
-
-    await build({
-        ...defaults,
-        entryPoints: ["src/index.js"],
-        outfile: 'lib/datetime.js',
-        format: "iife",
-        minify: production,
-        sourcemap: false,
-        plugins: [
-            progress({
-                text: 'Building Datetime Lib...',
-                succeedText: 'Lib built successfully in %s ms!'
-            }),
-            replace({
-                '__BUILD_TIME__': new Date().toLocaleString(),
-                '__VERSION__': version,
-            })
-        ],
+        ...options,
     })
 } else {
     const ctxEsm = await context({
-        ...defaults,
-        entryPoints: ["src/index.js"],
-        outfile: 'dist/datetime.js',
-        format: "esm",
-        plugins: [
-            progress({
-                text: 'Building Datetime ESM...',
-                succeedText: 'ESM built successfully in %s ms!'
-            }),
-            replace({
-                '__BUILD_TIME__': new Date().toLocaleString(),
-                '__VERSION__': version,
-            })
-        ],
+        ...options,
     })
-
-    const ctxLib = await context({
-        ...defaults,
-        entryPoints: ["src/index.js"],
-        outfile: 'lib/datetime.js',
-        format: "iife",
-        minify: production,
-        sourcemap: false,
-        plugins: [
-            progress({
-                text: 'Building Datetime Lib...',
-                succeedText: 'Lib built successfully in %s ms!'
-            }),
-            replace({
-                '__BUILD_TIME__': new Date().toLocaleString(),
-                '__VERSION__': version,
-            })
-        ],
-    })
-    
     await Promise.all([
         await ctxEsm.watch(),
-        await ctxLib.watch(),
     ]).catch(() => process.exit(1))
 }
 

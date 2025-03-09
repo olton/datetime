@@ -141,11 +141,12 @@ class Datetime {
     }
 
     val(val){
-        if ( !(val instanceof Date) )
+        if ( typeof val === "undefined" || val === null) {
             return this.value;
+        }
 
         if (this.mutable) {
-            this.value = val;
+            this.value = typeof val === "string" ? Date.parse(val) : typeof val === "number" ? new Date(val) : val;
             return this;
         }
 
@@ -153,7 +154,7 @@ class Datetime {
     }
 
     year2(){
-        return +(""+this.year()).substr(-2);
+        return +(""+this.year()).substring(-2);
     }
 
     /* Get + Set */
