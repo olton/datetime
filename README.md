@@ -169,10 +169,22 @@ console.log(datetime().prototypeTest(123));
 console.log(Datetime.staticTest());
 console.log(Datetime.staticTest(456));
 ```
-
-## Sponsors
-No sponsor yet :(
-
+---
 ## License
 
 Datetime is licensed under a [MIT license](LICENSE).
+
+---
+## Support
+
+If you like this project, please consider supporting it by:
+
++ Star this repository on GitHub
++ Sponsor this project on GitHub Sponsors
++ **PayPal** to `serhii@pimenov.com.ua`.
++ [**Patreon**](https://www.patreon.com/metroui)
++ [**Buy me a coffee**](https://buymeacoffee.com/pimenov)
+
+---
+
+Copyright (c) 2025 by [Serhii Pimenov](https://pimenov.com.ua)
