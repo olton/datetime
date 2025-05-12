@@ -28,7 +28,7 @@ import "./plugins/parse-time.js"
 import "./plugins/moon.js"
 
 import "./i18n/de.js"
-import "./i18n/ua.js"
+import "./i18n/uk.js"
 
 const version = "__VERSION__"
 const build_time = "__BUILD_TIME__"

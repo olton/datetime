@@ -1,0 +1,1 @@
+напиши тести за допомогою фреймворка Latte (package @olton/latte, docs https://latte.org.ua). describe не може бути вкладеним, внутрі describe використовуй it, якщо потрібно робити мокінг, використовуй функцію mock із Latte або spy. Тести поклади в папку tests.

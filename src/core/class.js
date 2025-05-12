@@ -5,7 +5,7 @@ import {isset} from "../helpers/isset.js";
 import {not} from "../helpers/not.js";
 import {lpad} from "../helpers/lpad.js";
 
-import ua_locale from "../i18n/ua.js"
+import ua_locale from "../i18n/uk.js"
 import de_locale from "../i18n/de.js"
 
 class Datetime {
@@ -154,7 +154,7 @@ class Datetime {
     }
 
     year2(){
-        return +(""+this.year()).substring(-2);
+        return +((""+this.year()).slice(-2));
     }
 
     /* Get + Set */
