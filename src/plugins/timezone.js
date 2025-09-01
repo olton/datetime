@@ -1,33 +1,29 @@
-import {DEFAULT_FORMAT} from "../helpers/consts.js";
 import {Datetime} from "../core/class.js";
 
-const fnFormat = Datetime.prototype.format;
-
-Object.assign(Datetime.prototype, {
-    utcOffset(){
+const timezoneMixin = {
+    utcOffset() {
         return this.value.getTimezoneOffset();
     },
 
-    timezone(){
+    timezone() {
         return this.toTimeString().replace(/.+GMT([+-])(\d{2})(\d{2}).+/, '$1$2:$3');
     },
 
-    timezoneName(){
+    timezoneName() {
         return this.toTimeString().replace(/.+\((.+?)\)$/, '$1');
-    },
-
-    format(format, locale){
-        format = format || DEFAULT_FORMAT;
-
-        const matches = {
-            Z: this.utcMode ? "Z" : this.timezone(),
-            ZZ: this.timezone().replace(":", ""),
-            ZZZ: "[GMT]"+this.timezone(),
-            z: this.timezoneName()
-        }
-
-        let result = format.replace(/(\[[^\]]+])|Z{1,3}|z/g, (match, $1) => $1 || matches[match])
-
-        return fnFormat.bind(this)(result, locale)
     }
-})
+};
+
+// Реєстрація форматера для Timezone
+Datetime.formatters.registerFormatter('timezone', (instance, format, locale) => {
+    const matches = {
+        Z: instance.utcMode ? "Z" : instance.timezone(),
+        ZZ: instance.timezone().replace(":", ""),
+        ZZZ: "[GMT]" + instance.timezone(),
+        z: instance.timezoneName()
+    };
+
+    return format.replace(/(\[[^\]]+])|Z{1,3}|z/g, (match, $1) => $1 || matches[match]);
+});
+
+Object.assign(Datetime.prototype, timezoneMixin);

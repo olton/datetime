@@ -4,9 +4,41 @@ import {required} from "../helpers/required.js";
 import {isset} from "../helpers/isset.js";
 import {not} from "../helpers/not.js";
 import {lpad} from "../helpers/lpad.js";
+import {formatterSystem} from '../helpers/format-system.js';
+import {alignStrategiesSystem} from '../helpers/align-strategies.js';
 
 import ua_locale from "../i18n/uk.js"
 import de_locale from "../i18n/de.js"
+
+const originalFormat = function(fmt, locale) {
+    const format = fmt || DEFAULT_FORMAT;
+    const names = Datetime.getLocale(locale || this.locale);
+    const year = this.year(), year2 = this.year2(), month = this.month(), day = this.day(), weekDay = this.weekDay();
+    const hour = this.hour(), minute = this.minute(), second = this.second(), ms = this.ms();
+    const matches = {
+        YY: year2,
+        YYYY: year,
+        M: month + 1,
+        MM: lpad(month + 1, 0, 2),
+        MMM: names.monthsShort[month],
+        MMMM: names.months[month],
+        D: day,
+        DD: lpad(day, 0, 2),
+        d: weekDay,
+        dd: names.weekdaysMin[weekDay],
+        ddd: names.weekdaysShort[weekDay],
+        dddd: names.weekdays[weekDay],
+        H: hour,
+        HH: lpad(hour, 0, 2),
+        m: minute,
+        mm: lpad(minute,0, 2),
+        s: second,
+        ss: lpad(second,0, 2),
+        sss: lpad(ms,0, 3)
+    };
+
+    return format.replace(REGEX_FORMAT, (match, $1) => $1 || matches[match]);
+};
 
 class Datetime {
     constructor() {
@@ -48,49 +80,14 @@ class Datetime {
         return isset(Datetime.locales[name], false) ? Datetime.locales[name] : Datetime.locales["en"];
     }
 
-    static align(date, align){
-        let _date = datetime(date),
-            result, temp;
-
-        switch (align) {
-            case C.s:  result = _date.ms(0); break; //second
-            case C.m:  result = Datetime.align(_date, C.s)[C.s](0); break; //minute
-            case C.h:  result = Datetime.align(_date, C.m)[C.m](0); break; //hour
-            case C.D:  result = Datetime.align(_date, C.h)[C.h](0); break; //day
-            case C.M:  result = Datetime.align(_date, C.D)[C.D](1); break; //month
-            case C.Y:  result = Datetime.align(_date, C.M)[C.M](0); break; //year
-            case C.W:  {
-                temp = _date.weekDay();
-                result = Datetime.align(date, C.D).addDay(-temp);
-                break; // week
-            }
-            default: result = _date;
-        }
-        return result;
+    static align(date, align) {
+        const _date = datetime(date);
+        return alignStrategiesSystem.executeAlign(_date, align);
     }
 
-    static alignEnd(date, align){
-        let _date = datetime(date),
-            result, temp;
-
-        switch (align) {
-            case C.ms: result = _date.ms(999); break; //second
-            case C.s:  result = Datetime.alignEnd(_date, C.ms); break; //second
-            case C.m:  result = Datetime.alignEnd(_date, C.s)[C.s](59); break; //minute
-            case C.h:  result = Datetime.alignEnd(_date, C.m)[C.m](59); break; //hour
-            case C.D:  result = Datetime.alignEnd(_date, C.h)[C.h](23); break; //day
-            case C.M:  result = Datetime.alignEnd(_date, C.D)[C.D](1).add(1, C.M).add(-1, C.D); break; //month
-            case C.Y:  result = Datetime.alignEnd(_date, C.D)[C.M](11)[C.D](31); break; //year
-            case C.W:  {
-                temp = _date.weekDay();
-                result = Datetime.alignEnd(_date, 'day').addDay(6 - temp);
-                break; // week
-            }
-
-            default: result = date;
-        }
-
-        return result;
+    static alignEnd(date, align) {
+        const _date = datetime(date);
+        return alignStrategiesSystem.executeAlignEnd(_date, align);
     }
 
     immutable(v){
@@ -217,15 +214,39 @@ class Datetime {
 
     add(val, to){
         switch (to) {
-            case C.h: return this.time(this.time() + (val * 60 * 60 * 1000));
-            case C.m: return this.time(this.time() + (val * 60 * 1000));
-            case C.s: return this.time(this.time() + (val * 1000));
-            case C.ms: return this.time(this.time() + (val));
-            case C.D: return this.day(this.day() + val);
-            case C.W: return this.day(this.day() + val * 7);
-            case C.M: return this.month(this.month() + val);
-            case C.Y: return this.year(this.year() + val);
+            case C.h:
+            case 'h':
+            case 'hour':
+                return this.time(this.time() + (val * 60 * 60 * 1000));
+            case C.m:
+            case 'm':
+            case 'minute':
+                return this.time(this.time() + (val * 60 * 1000));
+            case C.s:
+            case 's':
+            case 'second':
+                return this.time(this.time() + (val * 1000));
+            case C.ms:
+            case 'ms':
+                return this.time(this.time() + (val));
+            case C.D:
+            case 'D':
+            case 'day':
+                return this.day(this.day() + val);
+            case C.W:
+            case 'W':
+            case 'week':
+                return this.day(this.day() + val * 7);
+            case C.M:
+            case 'M':
+            case 'month':
+                return this.month(this.month() + val);
+            case C.Y:
+            case 'Y':
+            case 'year':
+                return this.year(this.year() + val);
         }
+        return this;
     }
 
     addHour(v){return this.add(v,C.h);}
@@ -237,34 +258,12 @@ class Datetime {
     addMonth(v){return this.add(v, C.M);}
     addYear(v){return this.add(v, C.Y);}
 
-    format(fmt, locale){
-        const format = fmt || DEFAULT_FORMAT;
-        const names = Datetime.getLocale(locale || this.locale);
-        const year = this.year(), year2 = this.year2(), month = this.month(), day = this.day(), weekDay = this.weekDay();
-        const hour = this.hour(), minute = this.minute(), second = this.second(), ms = this.ms();
-        const matches = {
-            YY: year2,
-            YYYY: year,
-            M: month + 1,
-            MM: lpad(month + 1, 0, 2),
-            MMM: names.monthsShort[month],
-            MMMM: names.months[month],
-            D: day,
-            DD: lpad(day, 0, 2),
-            d: weekDay,
-            dd: names.weekdaysMin[weekDay],
-            ddd: names.weekdaysShort[weekDay],
-            dddd: names.weekdays[weekDay],
-            H: hour,
-            HH: lpad(hour, 0, 2),
-            m: minute,
-            mm: lpad(minute,0, 2),
-            s: second,
-            ss: lpad(second,0, 2),
-            sss: lpad(ms,0, 3)
-        };
+    format(fmt, locale) {
+        // Спочатку обробляємо формат через систему форматерів
+        const processedFormat = formatterSystem.processFormat(this, fmt, locale);
 
-        return format.replace(REGEX_FORMAT, (match, $1) => $1 || matches[match]);
+        // Потім викликаємо оригінальний метод format
+        return originalFormat.call(this, processedFormat, locale);
     }
 
     valueOf(){
@@ -275,6 +274,11 @@ class Datetime {
         return this.value.toString();
     }
 }
+
+alignStrategiesSystem.initializeBuiltInStrategies();
+
+Datetime.alignStrategies = alignStrategiesSystem;
+Datetime.formatters = formatterSystem;
 
 const datetime = (...args) => args && args[0] instanceof Datetime ? args[0] : new Datetime(...args)
 

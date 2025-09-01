@@ -1,22 +1,18 @@
-import {DEFAULT_FORMAT} from "../helpers/consts.js";
 import {Datetime} from "../core/class.js";
 
-const fnFormat = Datetime.prototype.format;
-
-Object.assign(Datetime.prototype, {
-    century(){
-        return Math.ceil(this.year()/100);
-    },
-
-    format(format, locale){
-        format = format || DEFAULT_FORMAT;
-
-        const matches = {
-            C: this.century()
-        }
-
-        let fmt = format.replace(/(\[[^\]]+])|C/g, (match, $1) => $1 || matches[match])
-
-        return fnFormat.bind(this)(fmt, locale)
+const centuryMixin = {
+    century() {
+        return Math.ceil(this.year() / 100);
     }
-})
+};
+
+// Реєстрація форматера для Century
+Datetime.formatters.registerFormatter('century', (instance, format, locale) => {
+    const matches = {
+        C: instance.century()
+    };
+
+    return format.replace(/(\[[^\]]+])|C/g, (match, $1) => $1 || matches[match]);
+});
+
+Object.assign(Datetime.prototype, centuryMixin);
