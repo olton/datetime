@@ -40,11 +40,11 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "@olton/esbuild-plugin-progress": "^0.3.0",
-    "cross-env": "^7.0.3",
-    "esbuild": "^0.25.4",
+    "@olton/esbuild-plugin-progress": "^0.3.1",
+    "cross-env": "^10.0.0",
+    "esbuild": "^0.25.9",
     "esbuild-plugin-replace": "^1.4.0",
     "shx": "^0.4.0",
-    "@olton/latte": "^0.16.2"
+    "@olton/latte": "^0.17.4"
   }
 }

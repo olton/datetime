@@ -23,4 +23,4 @@ const ParseTimeMixin = {
     }
 }
 
-Object.assign(Datetime, ParseTimeMixin)
+Object.assign(Datetime, ParseTimeMixin);

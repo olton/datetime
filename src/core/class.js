@@ -99,12 +99,16 @@ class Datetime {
     }
 
     utc(){
-        this.utcMode = true;
+        if (!this.utcMode) {
+            this.utcMode = true;
+        }
         return this;
     }
 
     local(){
-        this.utcMode = false
+        if (this.utcMode) {
+            this.utcMode = false;
+        }
         return this;
     }
 
@@ -119,6 +123,7 @@ class Datetime {
         c.locale = this.locale;
         c.weekStart = this.weekStart;
         c.mutable = this.mutable;
+        c.utcMode = this.utcMode;
         return c;
     }
 
@@ -199,9 +204,7 @@ class Datetime {
         const curr = this.weekDay();
         const diff = val - curr;
 
-        this.day(this.day() + diff);
-
-        return this;
+        return this.add(diff, C.D);
     }
 
     get(unit){

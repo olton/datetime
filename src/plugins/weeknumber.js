@@ -5,92 +5,133 @@ import "./timezone.js"
 
 const fnFormat = Datetime.prototype.format;
 
+// Кеш для оптимізації обчислень
+const weekNumberCache = new Map();
+const MILLISECONDS_PER_DAY = 86400000;
+
 Object.assign(Datetime.prototype, {
-    // TODO Need optimisation
-    weekNumber (weekStart = 0) {
-        let nYear, nday, newYear, day, daynum, weeknum;
-
-        newYear = datetime(this.year(), 0, 1);
-        day = newYear.weekDay() - weekStart;
-        day = (day >= 0 ? day : day + 7);
-        daynum = Math.floor(
-            (this.time() - newYear.time() - (this.utcOffset() - newYear.utcOffset()) * 60000) / 86400000
-        ) + 1;
-
-        if(day < 4) {
-            weeknum = Math.floor((daynum + day - 1) / 7) + 1;
-            if(weeknum > 52) {
-                nYear = datetime(this.year() + 1, 0, 1);
-                nday = nYear.weekDay() - weekStart;
-                nday = nday >= 0 ? nday : nday + 7;
-                weeknum = nday < 4 ? 1 : 53;
-            }
+    weekNumber(weekStart = 0) {
+        // Створюємо унікальний ключ для кешування
+        const cacheKey = `${this.time()}_${weekStart}`;
+        if (weekNumberCache.has(cacheKey)) {
+            return weekNumberCache.get(cacheKey);
         }
-        else {
-            weeknum = Math.floor((daynum + day - 1) / 7);
-            // Якщо weeknum дорівнює 0, це означає, що дата належить до останнього тижня попереднього року
-            if (weeknum === 0) {
-                // Визначаємо останній тиждень попереднього року
-                const lastDayPrevYear = datetime(this.year() - 1, 11, 31);
-                weeknum = lastDayPrevYear.weekNumber(weekStart);
 
-                // Але якщо ми використовуємо ISO стандарт (weekStart=1), і день знаходиться
-                // на початку року, він може належати до 1-го тижня поточного року
-                if (weekStart === 1 && daynum <= (7 - day)) {
-                    weeknum = 1;
+        const year = this.year();
+        const newYear = datetime(year, 0, 1);
+        const newYearWeekDay = newYear.weekDay();
+
+        // Оптимізоване обчислення дня року
+        const dayOfYear = Math.floor((this.time() - newYear.time() -
+            (this.utcOffset() - newYear.utcOffset()) * 60000) / MILLISECONDS_PER_DAY) + 1;
+
+        // Нормалізація дня тижня відносно weekStart
+        const adjustedNewYearWeekDay = (newYearWeekDay - weekStart + 7) % 7;
+
+        let weekNumber;
+
+        if (adjustedNewYearWeekDay < 4) {
+            // Перший тиждень року має >= 4 дні
+            weekNumber = Math.floor((dayOfYear + adjustedNewYearWeekDay - 1) / 7) + 1;
+
+            // Перевіряємо, чи не належить тиждень наступному року
+            if (weekNumber > 52) {
+                const nextYear = datetime(year + 1, 0, 1);
+                const nextYearWeekDay = (nextYear.weekDay() - weekStart + 7) % 7;
+                weekNumber = nextYearWeekDay < 4 ? 1 : 53;
+            }
+        } else {
+            // Перший тиждень року почнеться пізніше
+            weekNumber = Math.floor((dayOfYear + adjustedNewYearWeekDay - 1) / 7);
+
+            if (weekNumber === 0) {
+                // Дата належить останньому тижню попереднього року
+                if (weekStart === 1 && dayOfYear <= (7 - adjustedNewYearWeekDay)) {
+                    weekNumber = 1;
+                } else {
+                    // Рекурсивно обчислюємо для останнього дня попереднього року
+                    const lastDayPrevYear = datetime(year - 1, 11, 31);
+                    weekNumber = lastDayPrevYear.weekNumber(weekStart);
                 }
             }
         }
-        return weeknum;
+
+        // Кешуємо результат
+        weekNumberCache.set(cacheKey, weekNumber);
+
+        // Очищуємо кеш якщо він стає занадто великим
+        if (weekNumberCache.size > 1000) {
+            const keysToDelete = Array.from(weekNumberCache.keys()).slice(0, 500);
+            keysToDelete.forEach(key => weekNumberCache.delete(key));
+        }
+
+        return weekNumber;
     },
 
-    isoWeekNumber(){
+    isoWeekNumber() {
+        const cacheKey = `iso_${this.time()}`;
+        if (weekNumberCache.has(cacheKey)) {
+            return weekNumberCache.get(cacheKey);
+        }
+
+        // Оригінальний правильний алгоритм ISO 8601
         const d = new Date(this.time());
         d.setHours(0, 0, 0, 0);
-        // Встановлюємо на четвер поточного тижня (четвер має номер 4)
+
+        // Встановлюємо дату на четвер поточного тижня (ISO тиждень завжди містить четвер)
         d.setDate(d.getDate() + 3 - (d.getDay() + 6) % 7);
-        // 4 січня завжди в першому тижні
+
+        // Перший четвер року (4 січня завжди в першому ISO тижні)
         const jan4 = new Date(d.getFullYear(), 0, 4);
-        // Встановлюємо на четвер тижня, що містить 4 січня
         jan4.setDate(jan4.getDate() + 3 - (jan4.getDay() + 6) % 7);
-        // Рахуємо кількість тижнів між двома четвергами
-        return 1 + Math.round(((d.getTime() - jan4.getTime()) / 86400000 - 3 + (jan4.getDay() + 6) % 7) / 7);
+
+        // Обчислюємо різницю в тижнях між двома четвергами
+        const weekNumber = 1 + Math.round(((d.getTime() - jan4.getTime()) / MILLISECONDS_PER_DAY - 3 + (jan4.getDay() + 6) % 7) / 7);
+
+        weekNumberCache.set(cacheKey, weekNumber);
+        return weekNumber;
     },
 
     weeksInYear(weekStart = 0) {
-        const curr = datetime(this.value);
-        const lastDay = curr.month(11).day(31);
-        const weekNum = lastDay.weekNumber(weekStart);
-
-        // Якщо останній день року має номер тижня 1, 
-        // і це перший день тижня (weekStart),
-        // використовуємо передостанній день року
-        if (weekNum === 1 && lastDay.weekDay() === weekStart) {
-            return lastDay.add(-1, 'day').weekNumber(weekStart);
+        const cacheKey = `weeks_${this.year()}_${weekStart}`;
+        if (weekNumberCache.has(cacheKey)) {
+            return weekNumberCache.get(cacheKey);
         }
 
+        // Оптимізовано: використовуємо 28 грудня замість 31, 
+        // оскільки 28 грудня завжди в останньому тижні року
+        const dec28 = datetime(this.year(), 11, 28);
+        let weekNum = dec28.weekNumber(weekStart);
+
+        // Якщо 28 грудня показує тиждень 1, то рік має 52 тижні
+        if (weekNum === 1) {
+            weekNum = 52;
+        }
+
+        weekNumberCache.set(cacheKey, weekNum);
         return weekNum;
     },
-    
-    // weeksInYear(weekStart){
-    //     const curr = datetime(this.value);
-    //     return curr.month(11).day(31).weekNumber(weekStart);
-    // },
 
-    format: function(format, locale){
-        let matches, result, wn = this.weekNumber(), wni = this.isoWeekNumber();
-
+    format: function(format, locale) {
         format = format || DEFAULT_FORMAT;
 
-        matches = {
-            W: wn,
-            WW: lpad(wn, 0, 2),
-            WWW: wni,
-            WWWW: lpad(wni, 0, 2)
+        // Оптимізація: обчислюємо номери тижнів тільки якщо вони потрібні
+        const hasWeekTokens = /W{1,4}/.test(format);
+        if (!hasWeekTokens) {
+            return fnFormat.bind(this)(format, locale);
+        }
+
+        const weekNum = this.weekNumber();
+        const isoWeekNum = this.isoWeekNumber();
+
+        const matches = {
+            W: weekNum,
+            WW: lpad(weekNum, 0, 2),
+            WWW: isoWeekNum,
+            WWWW: lpad(isoWeekNum, 0, 2)
         };
 
-        result = format.replace(/(\[[^\]]+])|W{1,4}/g, (match, $1) => $1 || matches[match]);
-
-        return fnFormat.bind(this)(result, locale)
+        const result = format.replace(/(\[[^\]]+])|W{1,4}/g, (match, $1) => $1 || matches[match]);
+        return fnFormat.bind(this)(result, locale);
     }
-})
+});

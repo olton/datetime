@@ -39,4 +39,4 @@ Object.assign(Datetime.prototype, {
         
         return phase();
     }
-})
+});
