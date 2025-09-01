@@ -8,13 +8,26 @@ const fnFormat = Datetime.prototype.format;
 // Кеш для оптимізації обчислень
 const weekNumberCache = new Map();
 const MILLISECONDS_PER_DAY = 86400000;
+const CACHE_TTL = 60000;
+const CACHE_SIZE = 1000;
+
+const cleanupCache = () => {
+    const now = Date.now();
+    for (const [key, value] of weekNumberCache.entries()) {
+        if (now - value.timestamp > CACHE_TTL) {
+            weekNumberCache.delete(key);
+        }
+    }
+};
 
 Object.assign(Datetime.prototype, {
     weekNumber(weekStart = 0) {
         // Створюємо унікальний ключ для кешування
         const cacheKey = `${this.time()}_${weekStart}`;
-        if (weekNumberCache.has(cacheKey)) {
-            return weekNumberCache.get(cacheKey);
+        const cached = weekNumberCache.get(cacheKey);
+
+        if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+            return cached.value;
         }
 
         const year = this.year();
@@ -55,15 +68,16 @@ Object.assign(Datetime.prototype, {
                 }
             }
         }
-
-        // Кешуємо результат
-        weekNumberCache.set(cacheKey, weekNumber);
-
+        
         // Очищуємо кеш якщо він стає занадто великим
-        if (weekNumberCache.size > 1000) {
-            const keysToDelete = Array.from(weekNumberCache.keys()).slice(0, 500);
-            keysToDelete.forEach(key => weekNumberCache.delete(key));
+        if (weekNumberCache.size > CACHE_SIZE) {
+            cleanupCache();
         }
+        
+        weekNumberCache.set(cacheKey, {
+            value: weekNumber,
+            timestamp: Date.now()
+        });
 
         return weekNumber;
     },

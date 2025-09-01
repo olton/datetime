@@ -11,7 +11,8 @@ const hour12Mixin = {
         let hour = h;
 
         if (arguments.length === 0) {
-            return this.hour() % 12;
+            const hour24 = this.hour();
+            return hour24 % 12 || 12;
         }
 
         p = p || 'am';

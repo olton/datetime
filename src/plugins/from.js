@@ -108,6 +108,13 @@ Object.assign(Datetime, {
         second  = iSecond > -1 && dItems[iSecond] ? dItems[iSecond] : 0;
         ms  = iMs > -1 && dItems[iMs] ? dItems[iMs] : 0;
 
+        // Додаємо перевірку для дворічного року
+        if (year && year < 100) {
+            year = year < 50 ? 2000 + parseInt(year) : 1900 + parseInt(year);
+        } else if (year === 0) {
+            year = new Date().getFullYear();
+        }
+
         return datetime(year, month-1, day, hour, minute, second, ms);
     }
 })

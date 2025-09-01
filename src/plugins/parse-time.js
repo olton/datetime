@@ -5,6 +5,9 @@ const ParseTimeMixin = {
         if (!isNaN(t)) return Math.abs(+t)
         const pattern = /([0-9]+d)|([0-9]{1,2}h)|([0-9]{1,2}m)|([0-9]{1,2}s)/gm
         const match = t.match(pattern)
+
+        if (!match) return 0;
+
         return match.reduce( (acc, val) => {
             let res
 

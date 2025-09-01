@@ -6,7 +6,7 @@ const getResult = (val) => {
         minutes = Math.floor(seconds / 60),
         hours = Math.floor(minutes / 60),
         days = Math.floor(hours / 24),
-        months = Math.floor(days / 30),
+        months = Math.floor(days / 30.44),
         years = Math.floor(months / 12)
 
     if (years >= 1) res =  `${years} year`
@@ -36,4 +36,4 @@ Object.assign(Datetime.prototype, {
         let val = datetime() - +this
         return getResult(val)
     }
-})
+});
